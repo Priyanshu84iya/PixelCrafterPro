@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PixelCrafter Pro - Advanced Pixel Art Editor</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <h1><i class="fas fa-paint-brush"></i> PixelCrafter Pro</h1>
+            <p>Professional Pixel Art Editor</p>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Control Panel -->
+            <aside class="control-panel">
+                <div class="panel-section">
+                    <h3><i class="fas fa-cog"></i> Canvas Settings</h3>
+                    <div class="input-group">
+                        <label for="gridWidth">Width:</label>
+                        <input type="number" id="gridWidth" min="1" max="100" value="16">
+                    </div>
+                    <div class="input-group">
+                        <label for="gridHeight">Height:</label>
+                        <input type="number" id="gridHeight" min="1" max="100" value="16">
+                    </div>
+                    <button id="createGrid" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Create Canvas
+                    </button>
+                </div>
+
+                <div class="panel-section">
+                    <h3><i class="fas fa-palette"></i> Tools</h3>
+                    <div class="tool-group">
+                        <button id="paintTool" class="tool-btn active" data-tool="paint">
+                            <i class="fas fa-paint-brush"></i> Paint
+                        </button>
+                        <button id="eraseTool" class="tool-btn" data-tool="erase">
+                            <i class="fas fa-eraser"></i> Erase
+                        </button>
+                    </div>
+                    
+                    <div class="color-section">
+                        <label for="colorPicker">Color:</label>
+                        <input type="color" id="colorPicker" value="#000000">
+                        <div class="color-preview" id="colorPreview"></div>
+                    </div>
+                </div>
+
+                <div class="panel-section">
+                    <h3><i class="fas fa-fill-drip"></i> Range Fill</h3>
+                    <div class="input-group">
+                        <label for="startPixel">Start Pixel:</label>
+                        <input type="number" id="startPixel" min="1" placeholder="1">
+                    </div>
+                    <div class="input-group">
+                        <label for="endPixel">End Pixel:</label>
+                        <input type="number" id="endPixel" min="1" placeholder="16">
+                    </div>
+                    <div class="radio-group">
+                        <label>
+                            <input type="radio" name="fillDirection" value="horizontal" checked>
+                            <i class="fas fa-arrows-alt-h"></i> Horizontal
+                        </label>
+                        <label>
+                            <input type="radio" name="fillDirection" value="vertical">
+                            <i class="fas fa-arrows-alt-v"></i> Vertical
+                        </label>
+                    </div>
+                    <button id="rangeFill" class="btn btn-secondary">
+                        <i class="fas fa-fill"></i> Fill Range
+                    </button>
+                </div>
+
+                <div class="panel-section">
+                    <h3><i class="fas fa-image"></i> Image to Pixel Art</h3>
+                    <input type="file" id="imageUpload" accept="image/*" class="file-input">
+                    <label for="imageUpload" class="btn btn-secondary">
+                        <i class="fas fa-upload"></i> Upload Image
+                    </label>
+                    <button id="convertImage" class="btn btn-secondary" disabled>
+                        <i class="fas fa-magic"></i> Convert to Pixel Art
+                    </button>
+                </div>
+
+                <div class="panel-section">
+                    <h3><i class="fas fa-download"></i> Export</h3>
+                    <button id="downloadCanvas" class="btn btn-success">
+                        <i class="fas fa-download"></i> Download as PNG
+                    </button>
+                    <button id="clearCanvas" class="btn btn-danger">
+                        <i class="fas fa-trash"></i> Clear Canvas
+                    </button>
+                </div>
+
+                <div class="panel-section">
+                    <h3><i class="fas fa-info-circle"></i> Info</h3>
+                    <div class="info-display">
+                        <p>Canvas: <span id="canvasInfo">16×16</span></p>
+                        <p>Total Pixels: <span id="totalPixels">256</span></p>
+                        <p>Current Tool: <span id="currentTool">Paint</span></p>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Canvas Area -->
+            <div class="canvas-container">
+                <div class="canvas-wrapper">
+                    <div id="pixelCanvas" class="pixel-canvas">
+                        <!-- Grid will be generated here -->
+                    </div>
+                </div>
+                <div class="canvas-controls">
+                    <button id="zoomIn" class="zoom-btn">
+                        <i class="fas fa-search-plus"></i>
+                    </button>
+                    <button id="zoomOut" class="zoom-btn">
+                        <i class="fas fa-search-minus"></i>
+                    </button>
+                    <button id="resetZoom" class="zoom-btn">
+                        <i class="fas fa-expand-arrows-alt"></i>
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Preview Modal for Image Upload -->
+        <div id="imagePreviewModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3>Image Preview</h3>
+                <canvas id="previewCanvas"></canvas>
+                <div class="modal-actions">
+                    <button id="confirmConvert" class="btn btn-primary">Convert</button>
+                    <button id="cancelConvert" class="btn btn-secondary">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
