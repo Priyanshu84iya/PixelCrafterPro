@@ -133,7 +133,7 @@ Export your creations as high-quality images:
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/PixelCrafterPro.git
+git clone https://github.com/Priyanshu84iya/PixelCrafterPro.git
 
 # Navigate to folder
 cd PixelCrafterPro
@@ -243,8 +243,8 @@ Special thanks to:
 
 ### **🎨 Ready to Create Your Masterpiece?**
 
-[![Download](https://img.shields.io/badge/📥%20Download-PixelCrafter%20Pro-6366f1?style=for-the-badge&logo=download)](https://github.com/yourusername/PixelCrafterPro/archive/main.zip)
-[![Star](https://img.shields.io/badge/⭐%20Star-This%20Repo-gold?style=for-the-badge&logo=github)](https://github.com/yourusername/PixelCrafterPro)
+[![Download](https://img.shields.io/badge/📥%20Download-PixelCrafter%20Pro-6366f1?style=for-the-badge&logo=download)](https://github.com/Priyanshu84iya/PixelCrafterPro/archive/main.zip)
+[![Star](https://img.shields.io/badge/⭐%20Star-This%20Repo-gold?style=for-the-badge&logo=github)](https://github.com/Priyanshu84iya/PixelCrafterPro)
 [![Coffee](https://img.shields.io/badge/☕%20Coffee-Support%20Creator-ff6b6b?style=for-the-badge&logo=coffee)](https://coff.ee/priyanshu6o)
 
 **Start Creating Amazing Pixel Art Today!** ✨
