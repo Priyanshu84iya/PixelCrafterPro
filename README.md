@@ -68,7 +68,7 @@
 | **🖌️ Paint Brush** | Click individual pixels to paint with selected color | ✅ |
 | **🧹 Eraser Tool** | Remove colors and restore pixel numbers automatically | ✅ |
 | **🎯 Color Picker** | Full spectrum color selection with live preview | ✅ |
-| **🔢 Pixel Numbers** | Every pixel shows unique ID, auto-hides when filled | ✅ |
+| **🔢 Pixel Numbers** | Every pixel shows unique ID, remains visible when colored | ✅ |
 
 ### 📐 **Canvas & Grid System**
 

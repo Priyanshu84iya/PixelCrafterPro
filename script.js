@@ -565,10 +565,18 @@ class PixelArtEditorAdvanced extends PixelArtEditor {
             if (pixelState.filled) {
                 pixelElement.style.backgroundColor = pixelState.color;
                 pixelElement.classList.add('filled');
-                pixelElement.textContent = '';
+                pixelElement.textContent = pixelState.number; // Keep number visible
+                
+                // Add contrast color for better readability
+                const rgb = this.hexToRgb(pixelState.color);
+                if (rgb) {
+                    const brightness = (rgb.r * 299 + rgb.g * 587 + rgb.b * 114) / 1000;
+                    pixelElement.style.color = brightness > 128 ? '#000000' : '#ffffff';
+                }
             } else {
                 pixelElement.style.backgroundColor = '';
                 pixelElement.classList.remove('filled');
+                pixelElement.style.color = '';
                 pixelElement.textContent = pixelState.number;
             }
         });
