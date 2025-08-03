@@ -3,7 +3,11 @@
 
 <div align="center">
 
+<<<<<<< HEAD
 ![PixelCrafter Pro Banner](https://img.shields.io/badge/PixelCrafter-Pro-6366f1?style=for-the-badge&logo=paih&logoColor=white)
+=======
+![PixelCrafter Pro Banner](https://img.shields.io/badge/PixelCrafter-Pro-6366f1?style=for-the-badge&logo=pai)
+>>>>>>> a9696f29c2af6c5d5ca9d1754eb4ea74dce0d109
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
