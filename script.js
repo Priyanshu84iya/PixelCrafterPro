@@ -198,7 +198,13 @@ class PixelArtEditor {
         pixelData.filled = true;
         pixelElement.style.backgroundColor = this.currentColor;
         pixelElement.classList.add('filled');
-        pixelElement.textContent = ''; // Hide number when filled
+        // Keep the number visible even when filled
+        pixelElement.textContent = pixelData.number;
+        
+        // Add contrast color for better readability
+        const rgb = this.hexToRgb(this.currentColor);
+        const brightness = (rgb.r * 299 + rgb.g * 587 + rgb.b * 114) / 1000;
+        pixelElement.style.color = brightness > 128 ? '#000000' : '#ffffff';
     }
 
     erasePixel(pixelData, pixelElement) {
@@ -373,6 +379,15 @@ class PixelArtEditor {
         return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
     }
 
+    hexToRgb(hex) {
+        const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+        return result ? {
+            r: parseInt(result[1], 16),
+            g: parseInt(result[2], 16),
+            b: parseInt(result[3], 16)
+        } : null;
+    }
+
     downloadCanvas() {
         // Create a high-resolution canvas for export
         const exportCanvas = document.createElement('canvas');
@@ -397,15 +412,20 @@ class PixelArtEditor {
             exportCtx.fillRect(0, y * (pixelSize + borderSize), exportCanvas.width, borderSize);
         }
         
-        // Draw pixels
+        // Draw pixels WITHOUT numbers for clean export
         this.pixels.forEach((pixelData, index) => {
+            const row = Math.floor(index / this.gridWidth);
+            const col = index % this.gridWidth;
+            const x = col * (pixelSize + borderSize) + borderSize;
+            const y = row * (pixelSize + borderSize) + borderSize;
+            
             if (pixelData.filled) {
-                const row = Math.floor(index / this.gridWidth);
-                const col = index % this.gridWidth;
-                const x = col * (pixelSize + borderSize) + borderSize;
-                const y = row * (pixelSize + borderSize) + borderSize;
-                
+                // Fill colored pixels
                 exportCtx.fillStyle = pixelData.color;
+                exportCtx.fillRect(x, y, pixelSize, pixelSize);
+            } else {
+                // Fill empty pixels with white background
+                exportCtx.fillStyle = '#ffffff';
                 exportCtx.fillRect(x, y, pixelSize, pixelSize);
             }
         });
