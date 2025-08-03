@@ -482,10 +482,6 @@ class PixelArtEditor {
                 event.preventDefault();
                 this.zoom(0.8);
                 break;
-            case '0':
-                event.preventDefault();
-                this.resetZoom();
-                break;
         }
     }
 }
